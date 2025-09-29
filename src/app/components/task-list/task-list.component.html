@@ -1,0 +1,76 @@
+<div class="task-list-container">
+  <!-- Header con estadísticas -->
+  <div class="task-stats">
+    <h2>Mis Tareas</h2>
+    <div class="stats">
+      <div class="stat-item">
+        <span class="stat-number">{{ totalTasks }}</span>
+        <span class="stat-label">Total</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">{{ pendingTasks.length }}</span>
+        <span class="stat-label">Pendientes</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">{{ completedTasks.length }}</span>
+        <span class="stat-label">Completadas</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Estado de carga -->
+  <div *ngIf="loading" class="loading-state">
+    <div class="spinner-large"></div>
+    <p>Cargando tareas...</p>
+  </div>
+
+  <!-- Estado de error -->
+  <div *ngIf="error" class="error-state">
+    <p class="error-message">{{ error }}</p>
+    <button class="btn btn-primary" (click)="reloadTasks()">
+      Reintentar
+    </button>
+  </div>
+
+  <!-- Lista de tareas -->
+  <div *ngIf="!loading && !error" class="tasks-container">
+    <!-- Sin tareas -->
+    <div *ngIf="totalTasks === 0" class="empty-state">
+      <div class="empty-icon">📝</div>
+      <h3>No tienes tareas aún</h3>
+      <p>Comienza agregando tu primera tarea usando el formulario de arriba.</p>
+    </div>
+
+    <!-- Tareas pendientes -->
+    <div *ngIf="pendingTasks.length > 0" class="task-section">
+      <h3 class="section-title">
+        Tareas Pendientes 
+        <span class="task-count">({{ pendingTasks.length }})</span>
+      </h3>
+      <div class="task-grid">
+        <app-task-item
+          *ngFor="let task of pendingTasks; trackBy: trackByTaskId"
+          [task]="task"
+          (deleteTask)="onDeleteTask($event)"
+          (toggleComplete)="onToggleComplete($event)"
+        ></app-task-item>
+      </div>
+    </div>
+
+    <!-- Tareas completadas -->
+    <div *ngIf="completedTasks.length > 0" class="task-section">
+      <h3 class="section-title">
+        Tareas Completadas 
+        <span class="task-count">({{ completedTasks.length }})</span>
+      </h3>
+      <div class="task-grid">
+        <app-task-item
+          *ngFor="let task of completedTasks; trackBy: trackByTaskId"
+          [task]="task"
+          (deleteTask)="onDeleteTask($event)"
+          (toggleComplete)="onToggleComplete($event)"
+        ></app-task-item>
+      </div>
+    </div>
+  </div>
+</div>
