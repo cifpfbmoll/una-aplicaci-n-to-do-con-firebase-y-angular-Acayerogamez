@@ -1,6 +1,17 @@
-# Lista de Tareas - Angular & Firebase
+# 🚀 Lista de Tareas - Angular & Firebase
 
-Una aplicación moderna de lista de tareas construida con Angular 18 y Firebase Firestore.
+[![Angular](https://img.shields.io/badge/Angular-18-DD0031?style=for-the-badge&logo=angular)](https://angular.dev)
+[![Firebase](https://img.shields.io/badge/Firebase-Firestore-FFCA28?style=for-the-badge&logo=firebase)](https://firebase.google.com)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.5-3178C6?style=for-the-badge&logo=typescript)](https://typescriptlang.org)
+[![SCSS](https://img.shields.io/badge/SCSS-CSS3-CC6699?style=for-the-badge&logo=sass)](https://sass-lang.com)
+
+Una aplicación moderna de lista de tareas construida con Angular 18 y Firebase Firestore con sincronización en tiempo real.
+
+## 📱 Demo en Vivo
+
+🔗 **[Ver Demo](https://angular-firebase-todo-app-demo.web.app)** *(Próximamente)*
+
+![App Screenshot](https://via.placeholder.com/800x400/6366f1/ffffff?text=Angular+Firebase+TODO+App)
 
 ## 🚀 Características
 
